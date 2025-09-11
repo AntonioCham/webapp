@@ -1,0 +1,11 @@
+# System
+.DS_Store
+
+# Setting
+.vscode/
+
+# Complie
+target/
+
+# Config
+src/main/resources/config.properties
