@@ -12,13 +12,14 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         try (Connection conn = DBUtil.getConnection()) {
-            String sql = "SELECT password, is_valid FROM Account WHERE username = ?";
+            String sql = "SELECT password, salt, is_valid FROM Account WHERE username = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
                 String storedHash = rs.getString("password");
+                String storedSalt = rs.getString("salt");
                 String isValid = rs.getString("is_valid");
 
                 if (!"Y".equalsIgnoreCase(isValid)) {
@@ -27,7 +28,7 @@ public class LoginServlet extends HttpServlet {
                     return;
                 }
 
-                String hashedPassword = DBUtil.hashPassword(password);
+                String hashedPassword = DBUtil.hashPassword(password, storedSalt);
                 if (storedHash.equals(hashedPassword)) {
                     HttpSession session = request.getSession();
                     session.setAttribute("username", username);
