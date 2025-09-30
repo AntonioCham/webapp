@@ -28,9 +28,10 @@ public class HomeServlet extends HttpServlet {
 
         if(records != null){
             request.setAttribute("records", records);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
         }else{
             request.setAttribute("errorMessage", "Internal server error.");
         }
+
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 }

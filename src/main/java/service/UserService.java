@@ -2,8 +2,6 @@ package service;
 
 import util.SecurityUtil;
 
-import java.sql.ResultSet;
-
 import dao.UserDAO;
 import model.Result;
 import model.User;
@@ -60,10 +58,11 @@ public class UserService {
             if(flag){
                 return new Result(true, "Registration successful! You may now log in.");
             }
-            return new Result(false, "Registration failed. Please try again.");
         }catch(Exception e){
             e.printStackTrace();
             return new Result(false, "Registration failed. Please try again.");
         }
+
+        return new Result(false, "Registration failed. Please try again.");
     }
 }

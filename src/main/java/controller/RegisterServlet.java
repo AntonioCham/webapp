@@ -22,10 +22,10 @@ public class RegisterServlet extends HttpServlet {
 
         if(rs.getFlag()){
             request.setAttribute("successMessage", rs.getMessage());
-            request.getRequestDispatcher("register.jsp").forward(request, response);
         }else {
             request.setAttribute("errorMessage", rs.getMessage());
-            request.getRequestDispatcher("register.jsp").forward(request, response);
         }
+        
+        request.getRequestDispatcher("register.jsp").forward(request, response);
     }
 }
