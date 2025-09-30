@@ -1,10 +1,12 @@
 package antoniocham;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.*;
 import java.sql.*;
 
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -28,7 +30,7 @@ public class LoginServlet extends HttpServlet {
                     return;
                 }
 
-                String hashedPassword = DBUtil.hashPassword(password, storedSalt);
+                String hashedPassword = SecurityUtil.hashPassword(password, storedSalt);
                 if (storedHash.equals(hashedPassword)) {
                     HttpSession session = request.getSession();
                     session.setAttribute("username", username);

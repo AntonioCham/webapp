@@ -27,8 +27,8 @@ public class RegisterServlet extends HttpServlet {
             }
 
             // Generate salt + hash
-            String salt = DBUtil.generateSalt();
-            String hashedPassword = DBUtil.hashPassword(password, salt);
+            String salt = SecurityUtil.generateSalt();
+            String hashedPassword = SecurityUtil.hashPassword(password, salt);
 
             // Insert user into account table
             String insertSql = "INSERT INTO Account (username, password, salt, create_datetime, last_modified_datetime, is_valid) VALUES (?, ?, ?, NOW(), NOW(), 'Y')";

@@ -1,5 +1,5 @@
 <web-app>
-    <servlet>
+    <!-- <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>antoniocham.LoginServlet</servlet-class>
     </servlet>
@@ -16,6 +16,15 @@
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.mywebapp.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping> -->
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>

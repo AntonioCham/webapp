@@ -1,12 +1,14 @@
 package antoniocham;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@WebServlet("/home")
 public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
