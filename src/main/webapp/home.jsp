@@ -48,8 +48,8 @@
             <tbody class="divide-y divide-gray-200 bg-white">
             <c:forEach var="record" items="${records}">
                 <tr class="hover:bg-indigo-50 transition">
-                    <td class="py-3 px-4">${record[0]}</td>
-                    <td class="py-3 px-4">${record[1]}</td>
+                    <td class="py-3 px-4">${record.title}</td>
+                    <td class="py-3 px-4">${record.description}</td>
                 </tr>
             </c:forEach>
             </tbody>

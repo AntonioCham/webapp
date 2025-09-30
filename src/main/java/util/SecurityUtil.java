@@ -1,9 +1,23 @@
-package antoniocham;
+package util;
 
+import model.Result;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 
 public class SecurityUtil {
+
+    public static Result vlidation(String username, String password){
+        if(username == null || username.isEmpty()) {
+            return new Result(false, "Username cannot be empty");
+        }
+
+        if(password == null || password.isEmpty()) {
+            return new Result(false, "Password cannot be empty");
+        }
+
+        return new Result(true, "Vlidated");
+    }
+
      // Generate a secure random salt
     public static String generateSalt() {
         SecureRandom sr = new SecureRandom();

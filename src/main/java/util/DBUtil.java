@@ -1,4 +1,4 @@
-package antoniocham;
+package util;
 
 import java.sql.*;
 import java.util.Properties;
